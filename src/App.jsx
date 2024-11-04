@@ -12,15 +12,58 @@ import {
   Orders,
 } from './pages';
 
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+      {
+        path: 'products',
+        element: <Products />,
+      },
+      {
+        path: 'products/:id',
+        element: <SingleProduct />,
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
+      },
+      {
+        path: 'checkout',
+        element: <Checkout />,
+      },
+      {
+        path: 'orders',
+        element: <Orders />,
+      },
+    ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
+    errorElement: <Error />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
+    errorElement: <Error />,
+  },
+]);
+
 function App() {
-  return (
-    <>
-      <h1 className="text-7xl font-bold underline bg-emerald-300">
-        Tailwind project
-      </h1>
-      <button className="btn">Button</button>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
