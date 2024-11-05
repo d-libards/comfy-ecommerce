@@ -1,8 +1,16 @@
+import { useLoaderData } from 'react-router-dom';
 import { Filters, ProductsContainer, PaginationContainer } from '../components';
 
-import { customFetch } from '../utils';
-
 const Products = () => {
-  return <div></div>;
+  const { products, meta } = useLoaderData();
+  console.log(meta);
+
+  return (
+    <section>
+      <Filters />
+      <ProductsContainer />
+      <PaginationContainer />
+    </section>
+  );
 };
 export default Products;

@@ -2,7 +2,7 @@ import { customFetch } from '../utils';
 
 const url = '/products?featured=true';
 
-export const landingLoader = async () => {
+const landingLoader = async () => {
   try {
     const response = await customFetch.get(url);
     const products = response.data.data;
@@ -12,3 +12,5 @@ export const landingLoader = async () => {
     return { error };
   }
 };
+
+export default landingLoader;

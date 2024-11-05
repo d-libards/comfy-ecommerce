@@ -1,6 +1,6 @@
 import { customFetch } from '../utils';
 
-export const singleProductLoader = async ({ params }) => {
+const singleProductLoader = async ({ params }) => {
   try {
     const response = await customFetch.get(`/products/${params.id}`);
     const product = response.data.data;
@@ -11,3 +11,5 @@ export const singleProductLoader = async ({ params }) => {
     return error;
   }
 };
+
+export default singleProductLoader;
