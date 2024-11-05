@@ -17,8 +17,8 @@ import { ErrorElement } from './components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 //loaders
-import { loader as landingLoader } from './pages/Landing';
-import { loader as singleProductLoader } from './pages/SingleProduct';
+import { landingLoader } from './loaders/landingLoader';
+import { singleProductLoader } from './loaders/singleProductLoader';
 
 //actions
 

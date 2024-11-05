@@ -1,18 +1,6 @@
 import { useLoaderData, Link } from 'react-router-dom';
-import { formatPrice, customFetch, generateAmountOptions } from '../utils';
+import { formatPrice, generateAmountOptions } from '../utils';
 import { useState } from 'react';
-
-export const loader = async ({ params }) => {
-  try {
-    const response = await customFetch.get(`/products/${params.id}`);
-    const product = response.data.data;
-
-    return { product };
-  } catch (error) {
-    console.error(error);
-    return error;
-  }
-};
 
 const SingleProduct = () => {
   const { product } = useLoaderData();
