@@ -20,7 +20,7 @@ const ProductsContainer = () => {
   return (
     <>
       {/* HEADER */}
-      <div className="flex justify-between items-center mt-8 border-b border-neutral-300 pb-5">
+      <div className="flex justify-between items-center mt-8 border-b border-neutral-300 pb-5 mb-5">
         <h4 className="font-medium text-md">
           {totalProducts} product
           {totalProducts > 1 && 's'}
