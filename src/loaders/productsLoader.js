@@ -2,7 +2,7 @@ import { customFetch } from '../utils';
 
 const url = '/products';
 
-const productLoader = async () => {
+const productLoader = async ({ request }) => {
   try {
     const response = await customFetch.get(url);
 

@@ -4,7 +4,7 @@ const Landing = () => {
   return (
     <>
       <Hero />
-      <FeaturedProducts products />
+      <FeaturedProducts />
     </>
   );
 };
