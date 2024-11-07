@@ -4,9 +4,14 @@ const url = '/products';
 
 const productLoader = async ({ request }) => {
   try {
-    const response = await customFetch.get(url);
+    const params = Object.fromEntries([
+      ...new URL(request.url).searchParams.entries(),
+    ]);
+    const response = await customFetch.get(url, {
+      params,
+    });
 
-    return { products: response.data.data, meta: response.data.meta };
+    return { products: response.data.data, meta: response.data.meta, params };
   } catch (error) {
     console.error(error);
     return error;
