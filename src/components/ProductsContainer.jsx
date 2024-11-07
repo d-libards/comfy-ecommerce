@@ -1,13 +1,17 @@
 import { useLoaderData } from 'react-router-dom';
 import ProductsList from './ProductsList';
 import ProductsGrid from './ProductsGrid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsFillGridFill, BsList } from 'react-icons/bs';
+
+const getLayoutFromLocalStorage = () => {
+  return localStorage.getItem('layout') || 'grid';
+};
 
 const ProductsContainer = () => {
   const { meta } = useLoaderData();
   const totalProducts = meta.pagination.total;
-  const [layout, setLayout] = useState('grid');
+  const [layout, setLayout] = useState(getLayoutFromLocalStorage());
 
   const setActiveStyles = (pattern) => {
     return `text-xl btn btn-circle btn-sm ${
@@ -16,6 +20,10 @@ const ProductsContainer = () => {
         : 'btn-ghost text-based-content'
     }`;
   };
+
+  useEffect(() => {
+    localStorage.setItem('layout', layout);
+  }, [layout]);
 
   return (
     <>
