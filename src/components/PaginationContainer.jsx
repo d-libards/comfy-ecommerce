@@ -3,8 +3,6 @@ import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 const PaginationContainer = () => {
   const { meta } = useLoaderData();
   const { pageCount, page } = meta.pagination;
-  console.log('pageCount:', pageCount);
-  console.log('page:', page);
 
   const pages = Array.from({ length: pageCount }, (_, index) => {
     return index + 1;
