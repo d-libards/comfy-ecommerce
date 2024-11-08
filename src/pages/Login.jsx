@@ -14,7 +14,7 @@ const Login = () => {
         <FormInput
           label="email"
           type="email"
-          defaultValue="test@test.com"
+          defaultValue="dev1@gmail.com"
           name="identifier"
         />
         <FormInput

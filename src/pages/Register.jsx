@@ -11,24 +11,9 @@ const Register = () => {
         <h4 className="text-center text-3xl font-bold uppercase tracking-wider">
           Register
         </h4>
-        <FormInput
-          label="username"
-          type="text"
-          defaultValue="dev1"
-          name="username"
-        />
-        <FormInput
-          label="email"
-          type="email"
-          defaultValue="test@test.com"
-          name="identifier"
-        />
-        <FormInput
-          label="password"
-          type="password"
-          defaultValue="secret"
-          name="password"
-        />
+        <FormInput label="username" type="text" name="username" />
+        <FormInput label="email" type="email" name="email" />
+        <FormInput label="password" type="password" name="password" />
         <div className="mt-4">
           <SubmitBtn text="Register" />
         </div>
