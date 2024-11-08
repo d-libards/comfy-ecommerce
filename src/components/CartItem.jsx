@@ -7,6 +7,14 @@ const CartItem = ({ cartItem }) => {
     cartItem;
   const dispatch = useDispatch();
 
+  const removeItemFromTheCart = () => {
+    dispatch(removeItem({ cartID }));
+  };
+
+  const handleAmount = (e) => {
+    dispatch(editItem({ amount: parseInt(e.target.value), cartID }));
+  };
+
   return (
     <article
       key={cartID}
@@ -45,6 +53,7 @@ const CartItem = ({ cartItem }) => {
             id="amount"
             value={amount}
             className="mt-2 select select-base select-bordered select-xs"
+            onChange={handleAmount}
           >
             {generateAmountOptions(amount + 5)}
           </select>
@@ -53,7 +62,7 @@ const CartItem = ({ cartItem }) => {
           {/* REMOVE */}
           <button
             className="mt-5 btn text-secondary btn-ghost btn-sm"
-            onClick={() => dispatch(removeItem({ cartID }))}
+            onClick={removeItemFromTheCart}
           >
             Remove
           </button>
