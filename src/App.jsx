@@ -17,10 +17,15 @@ import { ErrorElement } from './components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 //loaders
-import { landingLoader, singleProductLoader, productsLoader } from './loaders';
+import {
+  landingLoader,
+  singleProductLoader,
+  productsLoader,
+  checkoutLoader,
+} from './loaders';
 
 //actions
-import { registerAction, loginAction } from './action';
+import { registerAction, loginAction, checkoutFormAction } from './action';
 
 import { store } from './store';
 
@@ -58,6 +63,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'checkout',
+        loader: checkoutLoader(store),
+        action: checkoutFormAction(store),
         element: <Checkout />,
       },
       {
