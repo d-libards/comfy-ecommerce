@@ -2,9 +2,15 @@ import { customFetch } from '../utils';
 
 const url = '/products?featured=true';
 
-const landingLoader = async () => {
+const featuredProductQuery = {
+  queryKey: ['featuredProducts'],
+  queryFn: () => customFetch(url),
+};
+
+const landingLoader = (queryClient) => async () => {
   try {
-    const response = await customFetch.get(url);
+    const response = await queryClient.ensureQueryData(featuredProductQuery);
+
     const products = response.data.data;
     return { products };
   } catch (error) {
